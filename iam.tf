@@ -31,18 +31,20 @@ resource "aws_iam_policy" "lambda_policy" {
           "dynamodb:UpdateItem"
         ]
         Effect   = "Allow"
-        Resource = aws_dynamodb_table.payment_ledger.arn
+        Resource = "${aws_dynamodb_table.payment_ledger.arn}" # Ensure correct reference to DynamoDB ARN
       },
       {
         Action = [
+          "kms:Encrypt",
           "kms:Decrypt"
         ]
         Effect   = "Allow"
-        Resource = var.kms_key_id
+        Resource = var.kms_key_id # Ensure KMS key ID is correctly set in .tfvars
       }
     ]
   })
 }
+
 
 resource "aws_iam_role_policy_attachment" "attach_lambda_policy" {
   role       = aws_iam_role.lambda_exec_role.name
