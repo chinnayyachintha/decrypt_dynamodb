@@ -22,3 +22,8 @@ variable "tags" {
   description = "A map of tags to assign to resources."
   type        = map(string)
 }
+
+variable "api_gateway_name" {
+  type        = string
+  description = "Name of the api gateway"
+}

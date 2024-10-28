@@ -3,7 +3,7 @@ resource "aws_lambda_function" "payment_processor" {
   runtime       = "python3.9"
   role          = aws_iam_role.lambda_exec_role.arn
   handler       = "payment_processor.lambda_handler" # Update with actual handler
-  filename      = "lambda/payment_processor.zip" # Update with your actual path
+  filename      = "lambda/payment_processor.zip"     # Update with your actual path
 
   environment {
     variables = {

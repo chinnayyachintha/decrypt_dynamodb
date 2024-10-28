@@ -1,18 +1,21 @@
-# AWS Region where resources will be deployed
+# Region where the AWS resources will be deployed
 aws_region = "ca-central-1"
 
-# DynamoDB Table Name for storing payment data
+# Name of the DynamoDB table for storing decrypted payment data
 dynamodb_table_name = "PaymentLedger"
 
-# Lambda Function Name for decrypting and storing payment data
+# Name of the Lambda function responsible for decrypting payment data
 lambda_function_name = "PaymentProcessorFunction"
 
-# KMS Key ID used for decryption in Lambda (replace with your actual KMS key ARN)
-kms_key_id = ""
+# Name of the API Gateway that will invoke the Lambda function
+api_gateway_name = "PaymentAPI"
 
-# Tags for AWS resources to indicate environment and ownership
+# Tags to associate with AWS resources
 tags = {
   Environment = "Development"
   Project     = "Payment Gateway"
   Owner       = "Anudeep"
 }
+
+# KMS Key ID for decrypting payment information
+kms_key_id = ""
